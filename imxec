@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>KAYRASİNS HATIRASI</title>
+ <style>
+    body {
+  font-family: "Work Sans";
+}
+
+p {
+  font-size: 50px;
+  font-weight: 100;
+  animation: hello 0.5s ease-in-out infinite;
+  text-align: center;
+}
+
+ hello {
+  0% {
+    font-weight: 100;
+  }
+  50% {
+    font-weight: 900;
+  }
+  100% {
+    font-weight: 100;
+  }
+}
+body{
+background-color: black
+}
+</style>
+</head>
+<body>
+<center>
+    <img src="https://i.hizliresim.com/1mg5kp4.png" width="300px height=300px"><br>
+   <p style="color:white;">Akıllı Olmakta Fayda Var</p>
+    <font size="10"><a href="https://discord.gg/8aQ6m54cGe">KAYRASİNS DİSCORD</a></font><br>
+    <font size="10"><ol style="color:white;">Hacked:
+Petras
+Kayrasins
+</ol></font>
+
+</center>
+
+</body>
+</html>
