@@ -1,59 +1,181 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title></title>
-    <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn.discordapp.com/icons/1173245026172682330/eef594ce93174ca48d743394381310d9.png?size=512" type="">
+
+    <title>KAYRA & PETRAS - Siber Korsan</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <style>
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Black Ops One', cursive;
-            background-color: black;
-            background-image: url('https://i.hizliresim.com/8eiy1ym.gif');
+            overflow: hidden;
+            background-image: url('https://downloadwap.com/thumbs2/wallpapers/p2/2019/misc/44/d8ccc81013026314.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        .container {
+        #logo-container {
             text-align: center;
             color: white;
         }
 
-        .container img {
+        #logo-container img.logo {
+            max-width: 20%;
+            height: auto;
             border-radius: 50%;
-            margin: 10px;
         }
 
-        h2 {
-            margin: 10px 0;
+        .photos {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
 
-        .frame-5 span, .frame-6 span {
-            display: block;
+        .photos img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 15px;
+        }
+
+        p {
+            font-size: 24px;
             margin-top: 10px;
-            animation: blurFadeIn 3s ease-in backwards;
-            color: #fff;
-            text-shadow: 0px 0px 2px #fff;
+            letter-spacing: 1px;
         }
 
-        @keyframes blurFadeIn {
-            0% { opacity: 0; transform: scale(1.3); }
-            100% { opacity: 1; transform: scale(1); }
+        a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .binary-raindrop {
+            position: absolute;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            opacity: 0;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 999;
+        }
+
+        #overlay p {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 30%;
         }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            playMusic();
+            createBinaryRain();
+        });
+
+        function playMusic() {
+            const music = document.getElementById("background-music");
+            music.play().catch(error => {
+                console.log("Müzik otomatik çalınamıyor. Tarayıcı izni gerekli olabilir.");
+            });
+        }
+
+        function createBinaryRaindrop() {
+            const binaryDigit = Math.round(Math.random());
+            const raindrop = document.createElement("div");
+            raindrop.classList.add("binary-raindrop");
+            raindrop.innerText = binaryDigit;
+            raindrop.style.left = Math.random() * window.innerWidth + "px";
+            raindrop.style.top = 0;
+            raindrop.style.opacity = 1;
+            document.body.appendChild(raindrop);
+            animateRaindrop(raindrop, binaryDigit);
+        }
+
+        function animateRaindrop(raindrop, binaryDigit) {
+            playMusic();
+            const animationDuration = Math.random() * 5000 + 2000;
+            let startTime;
+            function animate(now) {
+                if (!startTime) startTime = now;
+                const elapsedTime = now - startTime;
+                const progress = elapsedTime / animationDuration;
+                raindrop.style.top = progress * window.innerHeight + "px";
+                raindrop.style.opacity = 1 - progress;
+                if (progress > 0.5) {
+                    raindrop.innerText = binaryDigit;
+                }
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    raindrop.remove();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function createBinaryRain() {
+            createBinaryRaindrop();
+            setInterval(createBinaryRaindrop, 100);
+        }
+
+        // Sağ tıklama olayı
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+            alert("KAYRA VE PETRAS BU SİTENİN KULLANIMI VE HİZMETİNE UZUN SÜRELİĞİNE EL KOYMUŞTUR BAŞARILAR :)");
+            
+        });
+    </script>
 </head>
+
 <body>
-    <div class="container">
-        <img class="xxxx" src="https://i.hizliresim.com/f3f86nf.jpg" width="200px" height="200px">
-        <img src="https://i.hizliresim.com/1mg5kp4.png" width="200px" height="200px"><br>
-        <h2 class="frame-1">$Petras - Kayra</h2>
-        <h2 class="frame-2">Into your system...</h2>
-        <h2 class="frame-3"> # Hacked.</h2>
-        <h2 class="frame-5"><span>Your System</span> <span>Has been</span> <span>Hacked</span><br/><span>By</span></h2>
-        <h2 class="frame-6"><span> $Petras - Kayra</span><br/><span>Herkes bize imreniyor, biz kendimize acıyoruz.</span></h2>
+    <div id="overlay">
+        <p>YÜKLENİYOR...</p>
     </div>
+    
+    <div id="logo-container">
+        <img class="logo" src="https://cdn.discordapp.com/avatars/210813140265467905/087180c5099dd767466ac0bb7a1a853f.png?size=256" alt="Siber Korsan">
+        <div class="photos">
+            <img src="https://cdn.discordapp.com/avatars/602838900485914625/bc4724db7d17d728fdda19dfabe959da.png?size=256" alt="Kayra">
+            <img src="https://cdn.discordapp.com/avatars/1118034161970724864/6407cfe12edcbd196e1b00a7c3cbecb6.png?size=256" alt="Petras">
+        </div>
+        <br>   <br>   <br>
+        <a>KAYRASİNS - PETRAS</a>
+        <br>
+        <a href="https://siberkorsan.com/" target="_blank">Siber Korsan TEAM</a>
+    </div>
+
+    <audio id="background-music" loop autoplay>
+        <source src="https://ia800404.us.archive.org/7/items/Mozart_20160424_2121/Mozart-Turkish_March.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
+
 </html>
